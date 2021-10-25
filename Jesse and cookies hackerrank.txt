@@ -1,0 +1,19 @@
+int cookies(int k, vector<int> A) {
+    priority_queue<int,vector<int>,greater<int>>pq;
+    for(auto k:A)
+        pq.push(k);
+        int count=0;
+         while(pq.top()<k&&!pq.empty()){
+             int a=pq.top();
+             pq.pop();
+             if(pq.empty())
+             break;
+             int b=pq.top();
+             pq.pop();
+             pq.push(a*1+b*2);
+             count++;
+         }
+         if(pq.empty())
+         return -1;
+         else return count;
+}

@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+ using namespace std;
+ #define ll long long int 
+
+
+ int main()
+ {
+      ll n;
+      cin >> n;
+      ll v[n],i;
+      for(i=0;i<n;i++)
+        cin >> v[i];
+        cout << "-1" << endl;
+        cout << "-1" << endl;
+           priority_queue<ll>pq;
+   for(i=0;i<3;i++)
+     pq.push(v[i]);
+
+       ll a=pq.top();
+       pq.pop();
+       ll b=pq.top();
+       pq.pop();
+       ll c=pq.top();
+       pq.pop();
+   cout << (a*b*c) << endl;
+   for(i=3;i<n;i++){
+     if(v[i]>a){
+         c=b;
+         b=a;
+         a=v[i];
+     }else if(v[i]>b){
+         c=b;
+         b=v[i];
+         
+     }else if(v[i]>c){
+         c=v[i];
+     }
+     cout << a*b*c << endl;
+   }
+
+   }
